@@ -11,10 +11,13 @@ const onChangeWidth = () => {
 };
 console.dir(divEl.style.width);
 
-const onChangeHeight = () => !inputH.value;
-divEl.style.height = "100px";
-
-divEl.style.height = `${inputH.value}px`;
+const onChangeHeight = () => {
+  if (!inputH.value) {
+    divEl.style.height = "100px";
+    return;
+  }
+  divEl.style.height = `${inputH.value}px`;
+};
 
 inputW.addEventListener("input", onChangeWidth);
 inputH.addEventListener("input", onChangeHeight);
